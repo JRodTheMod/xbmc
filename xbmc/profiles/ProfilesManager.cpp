@@ -508,6 +508,14 @@ std::string CProfilesManager::GetLibraryFolder() const
   return URIUtils::AddFileToFolder(GetUserDataFolder(), "library");
 }
 
+std::string CProfilesManager::GetSavegamesFolder() const
+{
+  if (GetCurrentProfile().hasDatabases())
+    return URIUtils::AddFileToFolder(GetProfileUserDataFolder(), "Savegames");
+
+  return URIUtils::AddFileToFolder(GetUserDataFolder(), "Savegames");
+}
+
 std::string CProfilesManager::GetSettingsFile() const
 {
   CStdString settings;
