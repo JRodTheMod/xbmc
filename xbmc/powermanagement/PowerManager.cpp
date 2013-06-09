@@ -288,7 +288,7 @@ void CPowerManager::OnWake()
 
 #ifdef HAS_JOYSTICK
   CLog::Log(LOGNOTICE, "%s: Restarting joystick manager", __FUNCTION__);
-  CJoystickManager::Get().SetEnabled(g_guiSettings.GetBool("input.enablejoystick") &&
+  CJoystickManager::Get().SetEnabled(CSettings::Get().GetBool("input.enablejoystick") &&
       PERIPHERALS::CPeripheralImon::GetCountOfImonsConflictWithDInput() == 0);
 #endif
 
