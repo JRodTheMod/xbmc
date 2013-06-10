@@ -27,12 +27,14 @@
 
 #pragma comment(lib, "XInput.lib")
 
+#define XINPUT_ALIAS  "XBMC-Compatible XInput Controller"
+
 
 CJoystickXInput::CJoystickXInput(unsigned int controllerID, unsigned int id)
   : m_state(), m_controllerID(controllerID), m_dwPacketNumber(0)
 {
   m_state.id          = id;
-  m_state.name        = "XBMC-Compatible XInput Controller";
+  m_state.name        = XINPUT_ALIAS;
   m_state.buttonCount = std::min(m_state.buttonCount, 10U);
   m_state.hatCount    = std::min(m_state.hatCount, 1U);
   m_state.axisCount   = std::min(m_state.axisCount, 5U);
