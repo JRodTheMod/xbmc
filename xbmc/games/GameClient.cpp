@@ -374,10 +374,10 @@ bool CGameClient::OpenFile(const CFileItem& file, const DataReceiver &callbacks)
 
   // Check if save states are supported, so rewind can be used.
   size_t state_size = m_dll.retro_serialize_size();
-  m_rewindSupported = state_size && CSettings::Get().GetBool("games.enablerewind");
+  m_rewindSupported = state_size && CSettings::Get().GetBool("gamesgeneral.enablerewind");
   if (m_rewindSupported)
   {
-    m_serialState.Init(state_size, (size_t)(CSettings::Get().GetInt("games.rewindtime") * m_frameRate));
+    m_serialState.Init(state_size, (size_t)(CSettings::Get().GetInt("gamesgeneral.rewindtime") * m_frameRate));
     if (!m_dll.retro_serialize(m_serialState.GetState(), m_serialState.GetFrameSize()))
     {
       m_rewindSupported = false;
@@ -520,7 +520,7 @@ void CGameClient::SetFrameRate(double framerate)
 {
   m_frameRate = framerate;
   if (m_rewindSupported)
-    m_serialState.SetMaxFrames((size_t)(CSettings::Get().GetInt("games.rewindtime") * m_frameRate));
+    m_serialState.SetMaxFrames((size_t)(CSettings::Get().GetInt("gamesgeneral.rewindtime") * m_frameRate));
 }
 
 void CGameClient::SetExtensions(const CStdString &strExtensionList)
