@@ -360,7 +360,11 @@ public:
 
   virtual bool LoadMusicTag();
 
-  /* returns the content type of this item if known. will lookup for http streams */
+  /*! \brief Returns the content type of this item
+   If m_mimetype is empty, it will be set to the resolved type. For HTTP streams,
+   this will query the stream (blocking operation). Set lookup=false to skip
+   internet lookups and always return immediately.
+   */
   const CStdString& GetMimeType(bool lookup = true) const;
 
   /* sets the mime-type if known beforehand */

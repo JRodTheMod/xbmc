@@ -1338,7 +1338,7 @@ bool CFileItem::IsParentFolder() const
 
 const CStdString& CFileItem::GetMimeType(bool lookup /*= true*/) const
 {
-  if( m_mimetype.IsEmpty() && lookup)
+  if (m_mimetype.IsEmpty())
   {
     CStdString& m_ref = const_cast<CStdString&>(m_mimetype);
 
@@ -1346,9 +1346,9 @@ const CStdString& CFileItem::GetMimeType(bool lookup /*= true*/) const
       m_ref = "x-directory/normal";
     else if( m_pvrChannelInfoTag )
       m_ref = m_pvrChannelInfoTag->InputFormat();
-    else if( m_strPath.Left(8).Equals("shout://")
-          || m_strPath.Left(7).Equals("http://")
-          || m_strPath.Left(8).Equals("https://"))
+    else if (lookup && m_strPath.Left(8).Equals("shout://")
+                    || m_strPath.Left(7).Equals("http://")
+                    || m_strPath.Left(8).Equals("https://"))
     {
       CCurlFile::GetMimeType(GetAsUrl(), m_ref);
 
