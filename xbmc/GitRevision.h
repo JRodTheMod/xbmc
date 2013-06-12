@@ -24,7 +24,7 @@
 #include "../git_revision.h"
 #endif
 
-#if !defined(_DEBUG) && defined(TARGET_WINDOWS) && !defined(_LIB)
+#if !defined(_DEBUG) && defined(TARGET_WINDOWS)
 #include "git_rev.h" //generated file
 #endif
 
