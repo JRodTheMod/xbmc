@@ -25,7 +25,7 @@
 #endif
 
 #if !defined(_DEBUG) && defined(TARGET_WINDOWS)
-#include "git_rev.h" //generated file
+#include "win32/git_rev.h" //generated file
 #endif
 
 #ifndef GIT_REV
